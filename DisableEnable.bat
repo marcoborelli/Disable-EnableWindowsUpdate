@@ -39,7 +39,6 @@ goto abilita
 	echo "WUStatusServer"="fakeupd1" >> wu.reg
 	echo "UpdateServiceUrlAlternate"="fakeupd2" >> wu.reg
 	echo "DoNotConnectToWindowsUpdateInternetLocations"=dword:00000001 >> wu.reg
-	echo "DoNotConnectToWindowsUpdateInternetLocations"=dword:00000001 >> wu.reg
 	echo [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU] >> wu.reg
 	echo "NoAutoRebootWithLoggedOnUsers"=dword:00000001 >> wu.reg
 	echo "UseWUServer"=dword:00000001 >> wu.reg
