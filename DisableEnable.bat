@@ -7,6 +7,8 @@ for /F "tokens=3" %%A in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Micro
 	set val= %%A
 )
 
+cls
+
 if %val% == 0x1 (
 	echo STATO ATTUALE: AGGIORNAMENTI DISABILITATI
 ) else (
