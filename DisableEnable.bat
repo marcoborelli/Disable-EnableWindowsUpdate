@@ -1,5 +1,18 @@
 @echo off
 color a
+
+set val=0x0
+
+for /F "tokens=3" %%A in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DoNotConnectToWindowsUpdateInternetLocations"') DO (
+	set val= %%A
+)
+
+if %val% == 0x1 (
+	echo STATO ATTUALE: AGGIORNAMENTI DISABILITATI
+) else (
+	echo STATO ATTUALE: AGGIORNAMENTI ABILITATI
+)
+
 set /p input= "VUOI DISATTIVARE [INVIO] O ATTIVARE GLI AGGIORNAMENTI? "
 if %input%a==a (
 	goto disabilita
