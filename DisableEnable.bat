@@ -36,7 +36,7 @@ goto abilita
 	
 	goto creazioneTempFile
 	:dentroDisabilita
-	"wu.reg"
+	regedit /s "wu.reg" 
 	sc config wuauserv start=disabled
 
 	del wu.reg
