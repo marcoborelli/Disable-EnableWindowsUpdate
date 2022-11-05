@@ -7,7 +7,7 @@ for /F "tokens=3" %%A in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Micro
 	set val= %%A
 )
 
-cls
+cls rem se da errore perchè non trova la chiave almeno così non lo vedo
 
 if %val% == 0x1 (
 	echo STATO ATTUALE: AGGIORNAMENTI DISABILITATI
@@ -15,12 +15,15 @@ if %val% == 0x1 (
 	echo STATO ATTUALE: AGGIORNAMENTI ABILITATI
 )
 
+whoami /groups | find "12288" > nul || echo NON SEI AMMINISTRATORE. RIAVVIA IL PROGRAMMA
+
 set /p input= "VUOI DISATTIVARE [INVIO] O ATTIVARE GLI AGGIORNAMENTI? "
 if %input%a==a (
 	goto disabilita
 )
-
-goto abilita
+else (
+	goto abilita
+)
 
 
 
