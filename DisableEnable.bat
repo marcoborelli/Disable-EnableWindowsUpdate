@@ -22,13 +22,15 @@ if not %errorLevel% == 0 (
 	exit
 ) 
 
-set /p input= "VUOI DISATTIVARE [INVIO] O ATTIVARE GLI AGGIORNAMENTI? "
-if %input%a==a (
+echo VUOI DISATTIVARE [D] O ABILITARE [A] GLI AGGIORNAMENTI? 
+choice /c da
+
+if %errorlevel% equ 1 (
 	goto disabilita
-)
-else (
+) else (
 	goto abilita
 )
+pause
 
 
 
