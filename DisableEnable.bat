@@ -15,7 +15,12 @@ if %val% == 0x1 (
 	echo STATO ATTUALE: AGGIORNAMENTI ABILITATI
 )
 
-whoami /groups | find "12288" > nul || echo NON SEI AMMINISTRATORE. RIAVVIA IL PROGRAMMA
+net session >nul 2>&1
+if not %errorLevel% == 0 (
+	echo NON SEI AMMINISTRATORE. RIAVVIA IL PROGRAMMA
+	pause
+	exit
+) 
 
 set /p input= "VUOI DISATTIVARE [INVIO] O ATTIVARE GLI AGGIORNAMENTI? "
 if %input%a==a (
